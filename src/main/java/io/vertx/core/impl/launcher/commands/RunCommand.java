@@ -380,6 +380,11 @@ public class RunCommand extends BareCommand {
       args.add("--conf");
       args.add(config);
     }
+    if (vertxOptions != null) {
+      // Pass the options in 2 steps to quote correctly the configuration if it's an inlined json string
+      args.add("-options");
+      args.add(vertxOptions);
+    }
     if (instances != 1) {
       args.add("--instances=" + instances);
     }
